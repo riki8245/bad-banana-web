@@ -1,6 +1,6 @@
 ---
 import LanguageSelector from './LanguageSelector.astro';
-// import logoImg from '../assets/images/badBananaLogo.png';
+import logoImg from '../assets/images/badBananaLogo.png';
 // Navigation component - Responsive navbar
 ---
 
@@ -11,7 +11,7 @@ import LanguageSelector from './LanguageSelector.astro';
       <h1 class="shrink-0">
         <a href="/" class="text-2xl font-bold text-yellow-500">
           <span class="inline-flex items-center gap-2">
-            <img src="/bad-banana-web/badBananaLogo.png" alt="BadBanana Logo" class="w-12 h-12">
+            <img src={logoImg.src} alt="BadBanana Logo" class="w-12 h-12">
             <span>Bad Banana</span>
           </span>
         </a>
