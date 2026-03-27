@@ -1,0 +1,43 @@
+---
+import '../styles/global.css'
+import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Bad Banana</title>
+	</head>
+	<body class="bg-white">
+		<Navigation />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		font-family: Calibri, -apple-system, sans-serif;
+	}
+
+	@font-face {
+		font-family: MasterOfBreak;
+		src: url('../assets/fonts/master_of_break.otf');
+		font-weight: 400;
+	}
+
+	h1 {
+		font-family: MasterOfBreak, system-ui, -apple-system, sans-serif;
+	}
+</style>

@@ -1,0 +1,23 @@
+---
+import heroBg from '../assets/images/BackgroundHero.jpg';
+import Boton from './Boton.astro';
+
+const mailtoLink = 'mailto:annaddiaz@hotmail.com?subject=Nuevo pedido en Bad Banana!&body=Buenas! Quería hacer un pedido 😊';
+// Hero section component - Main banner for the website
+---
+
+<section class="relative bg-cover bg-center text-gray-900 py-20 md:py-32" style={`background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.5)), url(/src/assets/images/BackgroundHero.jpg);`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+        <span class="inline-flex items-center gap-2 ">
+            <img src="/src/assets/images/badBananaLogo.png" alt="BadBanana Logo" class="w-32 h-32">
+            <span>Bad Banana</span>
+        </span>      
+    </h1>
+    <p class="text-lg md:text-xl mb-8 opacity-90">
+      <span class="lang" data-lang="en">Beautiful wooden art pieces featuring your beloved pets. Each piece is uniquely hand-painted and crafted with love.</span>
+      <span class="lang hidden" data-lang="es">Preciosas piezas de arte en madera que presentan a tus queridas mascotas o las de alguien más. ¡Son un regalo increible! Cada pieza es única, pintada a mano y elaborada con amor.</span>
+    </p>
+    <Boton texto="Order Now!" textoEs='Pide ahora!' href={mailtoLink} type='link'/>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+---
+// Boton Component - Reusable button/link component with props
+export interface Props {
+  texto?: string;
+  textoEs?: string;
+  href?: string;
+  className?: string;
+  type?: 'button' | 'link';
+}
+
+const {
+  texto = 'Click me',
+  textoEs,
+  href,
+  className = '',
+  type = 'button'
+} = Astro.props;
+
+const textEn = texto;
+const textEs = textoEs || texto;
+
+// Default button styles
+const defaultClasses = 'bg-yellow-500 text-yellow-900 px-8 py-3 rounded-lg font-bold text-lg hover:bg-yellow-200 hover:text-yellow-600 hover:cursor-pointer transition';
+
+// Combine default classes with custom classes
+const buttonClasses = `${defaultClasses} ${className}`.trim();
+---
+
+{type === 'link' && href ? (
+  <a href={href} class={buttonClasses} target="_blank" rel="noopener noreferrer">
+    <span class="lang" data-lang="en">{textEn}</span>
+    <span class="lang hidden" data-lang="es">{textEs}</span>
+  </a>
+) : (
+  <button class={buttonClasses}>
+    <span class="lang" data-lang="en">{textEn}</span>
+    <span class="lang hidden" data-lang="es">{textEs}</span>
+  </button>
+)}
+
+<script>
+  // Language switcher functionality for Boton component
+  function initBotonLanguageSwitcher() {
+    // Get user's preferred language from localStorage, default to 'en'
+    const savedLang = localStorage.getItem('preferred-language') || 'en';
+    setLanguage(savedLang);
+
+    // Listen for storage changes (language switched in another tab)
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'preferred-language') {
+        setLanguage(e.newValue || 'en');
+      }
+    });
+  }
+
+  function setLanguage(lang: string) {
+    // Update all language-dependent elements in this component
+    const elements = document.querySelectorAll('.lang');
+    elements.forEach(el => {
+      if (el.getAttribute('data-lang') === lang) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBotonLanguageSwitcher);
+  } else {
+    initBotonLanguageSwitcher();
+  }
+</script>

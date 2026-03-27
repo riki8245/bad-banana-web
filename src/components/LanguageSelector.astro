@@ -1,0 +1,94 @@
+---
+// Language Selector - allows users to switch between English and Spanish
+---
+
+<div class="language-selector-container">
+  <button
+    class="language-btn"
+    data-lang="en"
+    aria-label="Switch to English"
+  >
+    🇺🇸 EN
+  </button>
+  <span class="separator">|</span>
+  <button
+    class="language-btn"
+    data-lang="es"
+    aria-label="Cambiar a español"
+  >
+    🇪🇸 ES
+  </button>
+</div>
+
+<script>
+  // Handle language switching
+  document.querySelectorAll('.language-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+      localStorage.setItem('preferred-language', lang);
+      
+      // Update all language elements on the page
+      const allLangElements = document.querySelectorAll('.lang');
+      allLangElements.forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      
+      // Update button states
+      updateButtonStates(lang);
+    });
+  });
+
+  // Set active button based on current language
+  const currentLang = localStorage.getItem('preferred-language') || 'en';
+  updateButtonStates(currentLang);
+  
+  function updateButtonStates(lang: string) {
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+</script>
+
+<style>
+  .language-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .language-btn {
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.2s;
+    border-radius: 4px;
+  }
+
+  .language-btn:hover {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: #ca8a04;
+  }
+
+  .language-btn.active {
+    background-color: rgba(250, 204, 21, 0.2);
+    color: #ca8a04;
+    font-weight: bold;
+  }
+
+  .separator {
+    color: #ddd;
+  }
+</style>

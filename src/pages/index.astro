@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Boton from '../components/Boton.astro';
+import sherlockImg from '../assets/images/maderas/g_sherlock.png';
+import sugarImg from '../assets/images/maderas/sugar.jpg';
+import kylianImg from '../assets/images/maderas/g_kylian.jpg';
+import artistImg from '../assets/images/artist.jpg';
+
+const mailtoLink = 'mailto:annaddiaz@hotmail.com?subject=Nuevo pedido en Bad Banana!&body=Buenas! Quería hacer un pedido 😊';
+---
+
+<Layout>
+	<Hero />
+
+	<!--#region Gallery Section -->
+	<section class="py-16 md:py-24 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 id="gallery" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+					<span class="lang" data-lang="en">Featured Work</span>
+					<span class="lang hidden" data-lang="es">Trabajo Destacado</span>
+				</h2>
+				<p class="text-lg text-gray-600">
+					<span class="lang" data-lang="en">Explore our collection of hand-painted pet portraits</span>
+					<span class="lang hidden" data-lang="es">Explora nuestra colección de retratos de mascotas pintados a mano</span>
+				</p>
+			</div>
+
+			<!-- Gallery Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition
+				timeline-view animate-fade-in-up animate-range-[entry_20%_cover_45%]">
+					<div class="aspect-square overflow-hidden">
+						<img src={sherlockImg.src} alt="Sherlock Pet Portrait" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+					</div>
+					<div class="p-6">
+						<h3 class="font-bold text-lg mb-2">
+							<span class="lang" data-lang="en">Sherlock</span>
+							<span class="lang hidden" data-lang="es">Sherlock</span>
+						</h3>
+						<p class="text-gray-600 text-sm">
+							<span class="lang" data-lang="en">Beautiful hand-painted pet portrait on wood</span>
+							<span class="lang hidden" data-lang="es">Hermoso gatico naranja, le encanta maullar. ¿Podeis apreciar lo espectacular que le quedo esta madera? Nah esta tía es brutal.</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition
+				timeline-view animate-fade-in-up animate-range-[entry_25%_cover_55%]">
+					<div class="aspect-square overflow-hidden">
+						<img src={sugarImg.src} alt="Sugar Pet Portrait" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+					</div>
+					<div class="p-6">
+						<h3 class="font-bold text-lg mb-2">
+							<span class="lang" data-lang="en">Sugar</span>
+							<span class="lang hidden" data-lang="es">Sugar</span>
+						</h3>
+						<p class="text-gray-600 text-sm">
+							<span class="lang" data-lang="en">Beautiful hand-painted pet portrait on wood</span>
+							<span class="lang hidden" data-lang="es">Perrete de esos que miras y te preguntas como puede estar vivo. Habrás pensado que este era el perro de verdad, pero... un momento... ES OTRA MADERA!! Guau lo de esta tia es una locura.</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition
+				timeline-view animate-fade-in-up animate-range-[entry_30%_cover_55%]">
+					<div class="aspect-square overflow-hidden">
+						<img src={kylianImg.src} alt="Kylian Pet Portrait" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+					</div>
+					<div class="p-6">
+						<h3 class="font-bold text-lg mb-2">
+							<span class="lang" data-lang="en">Kylian</span>
+							<span class="lang hidden" data-lang="es">Kylian</span>
+						</h3>
+						<p class="text-gray-600 text-sm">
+							<span class="lang" data-lang="en">Beautiful hand-painted pet portrait on wood</span>
+							<span class="lang hidden" data-lang="es">Mbappe, no se como se escribe, pero, que coño más da este texto si te has quedado empanado mirando lo tremendo que le quedó este gatito. Si no pillas una madera, o no quieres a tu gato, o eres un mileurista 😞🤘.</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--#endregion Gallery Section -->
+
+	<!-- About Section -->
+	<section id="about" class="py-16 md:py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+						<span class="lang" data-lang="en">About My Work</span>
+						<span class="lang hidden" data-lang="es">Sobre Mi trabajo</span>
+					</h2>
+					<p class="text-gray-600 text-lg mb-4">
+						<span class="lang" data-lang="en">I'm Ana! Probably the coolest and prettiest girl you'll ever see 💅. I love making the people around me happy and telling jokes with a bit of a stutter 🤣. My butt isn't for sale, sweetie. Here's to all the girls with big butts 💪.</span>
+						<span class="lang hidden" data-lang="es">Soy Ana! Probablemente la tía mas chula y guapa que veras en tu vida 💅. Me encanta hacer feliz a la gente de mi alrededor y contar un chistes con algo de dislexia 🤣. Mi culo no esta a la venta guapa. Por las culonas 💪.</span>
+					</p>
+					<p class="text-gray-600 text-lg mb-4">
+						<span class="lang" data-lang="en">Each pet portrait is a labor of love, hand-painted on carefully selected wood chunks. We create unique, personalized artwork that celebrates the bond between you and your furry friends.</span>
+						<span class="lang hidden" data-lang="es">Cada retrato es un trabajo de amor, pintado a mano pelo a pelo en trozos de madera cuidadosamente seleccionados. Son obras de arte únicas y personalizadas que celebran el vínculo entre tú y tus amigos peludos.</span>
+					</p>
+					<!-- <p class="text-gray-600 text-lg mb-6">
+						<span class="lang" data-lang="en">Using high-quality paints and techniques, every piece is one-of-a-kind and made specifically for you.</span>
+						<span class="lang hidden" data-lang="es">Utilizando pinturas de alta calidad y técnicas profesionales, cada pieza es única y hecha específicamente para ti.</span>
+					</p> -->
+					<Boton texto="Order Your Portrait!" textoEs="Pide tu Retrato!" href={mailtoLink} type='link'/>
+				</div>
+				<div class="bg-yellow-100 rounded-lg aspect-square flex items-center justify-center h-80">
+					<div class="aspect-square rounded-2xl overflow-hidden">
+						<img src={artistImg.src} alt="Artist" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="py-16 md:py-24 bg-gray-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+				<span class="lang" data-lang="en">Ready to Order?</span>
+				<span class="lang hidden" data-lang="es">¿Listo para Ordenar?</span>
+			</h2>
+			<p class="text-lg text-gray-600 mb-8">
+				<span class="lang" data-lang="en">Follow us on Instagram to see more of our work and place your order!</span>
+				<span class="lang hidden" data-lang="es">¡Síguenos en Instagram para ver más de mi trabajo, tambien puedes contactarme por ahí!</span>
+			</p>
+			<Boton
+				texto="Visit Our Instagram"
+				textoEs="Visita Nuestro Instagram"
+				href="https://www.instagram.com/badbanana.shop"
+				type="link"
+				className="inline-block bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition"
+			/>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	// Language switcher functionality
+	function initLanguageSwitcher() {
+		// Get user's preferred language from localStorage, default to 'en'
+		const savedLang = localStorage.getItem('preferred-language') || 'en';
+		setLanguage(savedLang);
+
+		// Listen for storage changes (language switched in another tab)
+		window.addEventListener('storage', (e) => {
+			if (e.key === 'preferred-language') {
+				setLanguage(e.newValue || 'en');
+			}
+		});
+
+		// Listen for custom language change events
+		window.addEventListener('languageChanged', (e: any) => {
+			setLanguage(e.detail.language);
+		});
+	}
+
+	function setLanguage(lang: string) {
+		// Update all language-dependent elements
+		const elements = document.querySelectorAll('.lang');
+		elements.forEach(el => {
+			if (el.getAttribute('data-lang') === lang) {
+				el.classList.remove('hidden');
+			} else {
+				el.classList.add('hidden');
+			}
+		});
+	}
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+	} else {
+		initLanguageSwitcher();
+	}
+</script>

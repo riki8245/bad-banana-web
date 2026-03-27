@@ -1,0 +1,56 @@
+---
+import LanguageSelector from './LanguageSelector.astro';
+// Navigation component - Responsive navbar
+---
+
+<nav class="bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo/Brand -->
+      <h1 class="shrink-0">
+        <a href="/" class="text-2xl font-bold text-yellow-500">
+          <span class="inline-flex items-center gap-2">
+            <img src="/src/assets/images/badBananaLogo.png" alt="BadBanana Logo" class="w-12 h-12">
+            <span>Bad Banana</span>
+          </span>
+        </a>
+      </h1>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          <a href="/" class="text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition"><span class="lang" data-lang="en">Home</span><span class="lang hidden" data-lang="es">Inicio</span></a>
+          <a href="#gallery" class="text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition"><span class="lang" data-lang="en">Gallery</span><span class="lang hidden" data-lang="es">Galería</span></a>
+          <a href="#about" class="text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition"><span class="lang" data-lang="en">About</span><span class="lang hidden" data-lang="es">Acerca de</span></a>
+          <a href="#contact" class="text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition"><span class="lang" data-lang="en">Contact</span><span class="lang hidden" data-lang="es">Contacto</span></a>
+        </div>
+      </div>
+
+      <!-- Language Selector + Mobile menu icon -->
+      <div class="flex items-center gap-4">
+        <LanguageSelector />
+        <label for="nav-toggle" class="md:hidden text-gray-700 hover:text-yellow-600 cursor-pointer text-2xl">☰</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu with checkbox peer trick -->
+  <input id="nav-toggle" type="checkbox" class="hidden peer" aria-label="Open menu" />
+  <aside class="fixed inset-y-0 right-0 w-0 bg-white shadow-2xl overflow-hidden transition-all duration-300 ease-out peer-checked:w-72 z-50">
+    <div class="flex items-center justify-between p-4 border-b">
+      <span class="text-lg font-bold text-yellow-500">Bad Banana</span>
+      <label for="nav-toggle" class="text-gray-700 hover:text-yellow-600 cursor-pointer text-xl">✕</label>
+    </div>
+    <nav class="flex flex-col p-4 gap-4" >
+      <a href="/" class="text-gray-700 hover:text-yellow-600 font-medium transition"><span class="lang" data-lang="en">Home</span><span class="lang hidden" data-lang="es">Inicio</span></a>
+      <a href="#gallery" class="text-gray-700 hover:text-yellow-600 font-medium transition"><span class="lang" data-lang="en">Gallery</span><span class="lang hidden" data-lang="es">Galería</span></a>
+      <a href="#about" class="text-gray-700 hover:text-yellow-600 font-medium transition"><span class="lang" data-lang="en">About</span><span class="lang hidden" data-lang="es">Acerca de</span></a>
+      <a href="#contact" class="text-gray-700 hover:text-yellow-600 font-medium transition"><span class="lang" data-lang="en">Contact</span><span class="lang hidden" data-lang="es">Contacto</span></a>
+      <a href="https://www.instagram.com/badbanana.shop" target="_blank" class="text-gray-700 hover:text-yellow-600 font-medium transition"><span class="lang" data-lang="en">Visit Our Instagram</span><span class="lang hidden" data-lang="es">Visita Nuestro Instagram</span></a>
+    </nav>
+  </aside>
+
+  <!-- Overlay for click outside closing (pure CSS hack w/ sibling selector) -->
+  <label for="nav-toggle" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 ease-out peer-checked:opacity-40 peer-checked:pointer-events-auto z-10" aria-hidden="true"></label>
+</nav>
+
